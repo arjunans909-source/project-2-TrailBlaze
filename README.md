@@ -1,5 +1,11 @@
 🌍 TrailBlaze
 
+[![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen)](https://project-2-trailblaze.vercel.app/)
+[![GitHub](https://img.shields.io/badge/GitHub-Repository-black)](https://github.com/arjunans909-source/project-2-TrailBlaze)
+
+🌐 **Live Demo:** https://project-2-trailblaze.vercel.app/
+
+
 TrailBlaze is a responsive web application built with React and Tailwind CSS, featuring reusable components, interactive interfaces, theme support, and a clean project structure.
 
 ✨ Features
