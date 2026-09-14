@@ -66,7 +66,7 @@ TrailBlaze was developed using modern frontend technologies including React, Jav
 
 ### 📋 My Trips
 
-![My Trips](./screenshots/my-trips.png)
+![My Trips](./screenshots/my-trip.png)
 
 ### 🗺️ Trip Details
 
