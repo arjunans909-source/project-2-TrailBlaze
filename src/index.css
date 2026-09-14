@@ -1,0 +1,1424 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+
+@import "tailwindcss";
+
+/* =========================================================
+CINEMATIC AURORA THEME
+========================================================= */
+
+:root {
+--bg-main: #07051a;
+--bg-card: rgba(18, 15, 40, 0.58);
+--bg-soft: rgba(25, 20, 50, 0.72);
+
+--text-main: #ffffff;
+--text-muted: #aaa7c4;
+--text-soft: #77738f;
+
+--border-color: rgba(255, 255, 255, 0.12);
+
+--violet: #7c3aed;
+--purple: #a855f7;
+--pink: #ec4899;
+--orange: #fb7185;
+--gold: #f59e0b;
+--cyan: #22d3ee;
+
+--shadow:
+0 30px 80px rgba(0, 0, 0, 0.45);
+}
+
+/* =========================================================
+DARK / LIGHT ROOT
+========================================================= */
+
+.dark {
+--bg-main: #030014;
+--bg-card: rgba(13, 10, 32, 0.64);
+--bg-soft: rgba(20, 15, 45, 0.72);
+
+--text-main: #ffffff;
+--text-muted: #aaa7c4;
+}
+
+/* =========================================================
+GLOBAL
+========================================================= */
+
+* {
+box-sizing: border-box;
+}
+
+html {
+scroll-behavior: smooth;
+}
+
+body {
+margin: 0;
+min-height: 100vh;
+
+color: var(--text-main);
+
+font-family:
+Inter,
+ui-sans-serif,
+system-ui,
+-apple-system,
+BlinkMacSystemFont,
+"Segoe UI",
+sans-serif;
+
+overflow-x: hidden;
+
+background:
+radial-gradient(
+ellipse at 15% 20%,
+rgba(124, 58, 237, 0.32),
+transparent 38%
+),
+radial-gradient(
+ellipse at 85% 15%,
+rgba(236, 72, 153, 0.26),
+transparent 34%
+),
+radial-gradient(
+ellipse at 80% 85%,
+rgba(251, 113, 133, 0.20),
+transparent 36%
+),
+radial-gradient(
+ellipse at 20% 90%,
+rgba(34, 211, 238, 0.14),
+transparent 32%
+),
+#07051a;
+
+background-attachment: fixed;
+}
+
+/* =========================================================
+MOVING AURORA
+========================================================= */
+
+body::before {
+content: "";
+
+position: fixed;
+
+width: 70vw;
+height: 70vw;
+
+max-width: 900px;
+max-height: 900px;
+
+top: -35%;
+left: -20%;
+
+border-radius: 50%;
+
+pointer-events: none;
+
+z-index: -2;
+
+background:
+conic-gradient(
+from 180deg,
+#7c3aed,
+#ec4899,
+#fb7185,
+#f59e0b,
+#7c3aed
+);
+
+filter: blur(120px);
+
+opacity: 0.30;
+
+animation:
+aurora-one 18s ease-in-out infinite alternate;
+}
+
+/* Second moving glow */
+
+body::after {
+content: "";
+
+position: fixed;
+
+width: 60vw;
+height: 60vw;
+
+max-width: 800px;
+max-height: 800px;
+
+right: -25%;
+bottom: -30%;
+
+border-radius: 50%;
+
+pointer-events: none;
+
+z-index: -2;
+
+background:
+conic-gradient(
+from 0deg,
+#22d3ee,
+#7c3aed,
+#ec4899,
+#22d3ee
+);
+
+filter: blur(130px);
+
+opacity: 0.24;
+
+animation:
+aurora-two 22s ease-in-out infinite alternate;
+}
+
+@keyframes aurora-one {
+0% {
+transform:
+translate3d(0, 0, 0)
+rotate(0deg)
+scale(1);
+}
+
+25% {
+transform:
+translate3d(18vw, 8vh, 0)
+rotate(60deg)
+scale(1.15);
+}
+
+50% {
+transform:
+translate3d(30vw, 25vh, 0)
+rotate(140deg)
+scale(0.92);
+}
+
+75% {
+transform:
+translate3d(10vw, 35vh, 0)
+rotate(220deg)
+scale(1.18);
+}
+
+100% {
+transform:
+translate3d(-5vw, 15vh, 0)
+rotate(360deg)
+scale(1);
+}
+}
+
+@keyframes aurora-two {
+0% {
+transform:
+translate3d(0, 0, 0)
+scale(1);
+}
+
+50% {
+transform:
+translate3d(-25vw, -20vh, 0)
+scale(1.25);
+}
+
+100% {
+transform:
+translate3d(-5vw, -35vh, 0)
+scale(0.9);
+}
+}
+
+/* =========================================================
+AMBIENT LIGHT LAYER
+========================================================= */
+
+#root {
+min-height: 100vh;
+
+position: relative;
+
+isolation: isolate;
+
+animation:
+page-enter 900ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#root::before {
+content: "";
+
+position: fixed;
+
+inset: 0;
+
+pointer-events: none;
+
+z-index: -1;
+
+background:
+linear-gradient(
+115deg,
+transparent 0%,
+rgba(255, 255, 255, 0.025) 45%,
+transparent 55%
+);
+
+background-size: 250% 250%;
+
+animation:
+light-sweep 12s ease-in-out infinite;
+}
+
+@keyframes light-sweep {
+0% {
+background-position: 200% 50%;
+}
+
+50% {
+background-position: 0% 50%;
+}
+
+100% {
+background-position: -200% 50%;
+}
+}
+
+/* =========================================================
+PAGE ENTRANCE
+========================================================= */
+
+@keyframes page-enter {
+from {
+opacity: 0;
+
+transform:
+  translateY(25px)
+  scale(0.985);
+
+filter: blur(8px);
+
+
+}
+
+to {
+opacity: 1;
+
+transform:
+  translateY(0)
+  scale(1);
+
+filter: blur(0);
+
+
+}
+}
+
+/* =========================================================
+GLASS
+========================================================= */
+
+.glass {
+position: relative;
+
+background:
+linear-gradient(
+135deg,
+rgba(255, 255, 255, 0.095),
+rgba(255, 255, 255, 0.025)
+);
+
+border:
+1px solid rgba(255, 255, 255, 0.12);
+
+border-radius: 24px;
+
+-webkit-backdrop-filter:
+blur(24px)
+saturate(150%);
+
+backdrop-filter:
+blur(24px)
+saturate(150%);
+
+box-shadow:
+0 30px 80px rgba(0, 0, 0, 0.35),
+inset 0 1px 0 rgba(255, 255, 255, 0.08);
+
+overflow: hidden;
+
+transition:
+transform 400ms cubic-bezier(0.16, 1, 0.3, 1),
+border-color 400ms ease,
+box-shadow 400ms ease;
+}
+
+.glass::before {
+content: "";
+
+position: absolute;
+
+inset: 0;
+
+pointer-events: none;
+
+background:
+linear-gradient(
+135deg,
+rgba(255, 255, 255, 0.10),
+transparent 35%
+);
+
+opacity: 0.8;
+}
+
+.glass:hover {
+transform: translateY(-5px);
+
+border-color:
+rgba(236, 72, 153, 0.28);
+
+box-shadow:
+0 35px 90px rgba(0, 0, 0, 0.45),
+0 0 40px rgba(124, 58, 237, 0.10);
+}
+
+/* =========================================================
+CARDS
+========================================================= */
+
+.group {
+position: relative;
+
+border-radius: 24px;
+
+transition:
+transform 450ms cubic-bezier(0.16, 1, 0.3, 1),
+box-shadow 450ms ease;
+}
+
+.group:hover {
+transform:
+translateY(-8px)
+scale(1.01);
+
+box-shadow:
+0 35px 80px rgba(0, 0, 0, 0.40),
+0 0 50px rgba(124, 58, 237, 0.12);
+}
+
+/* =========================================================
+IMAGES
+========================================================= */
+
+img {
+transition:
+transform 800ms cubic-bezier(0.16, 1, 0.3, 1),
+filter 500ms ease;
+}
+
+.group:hover img {
+transform: scale(1.08);
+
+filter:
+saturate(1.15)
+brightness(1.08);
+}
+
+/* =========================================================
+GRADIENT TEXT
+========================================================= */
+
+.gradient-text {
+background:
+linear-gradient(
+90deg,
+#c084fc,
+#f472b6,
+#fb7185,
+#fbbf24,
+#c084fc
+);
+
+background-size: 300% auto;
+
+-webkit-background-clip: text;
+background-clip: text;
+
+color: transparent;
+
+animation:
+rainbow-text 7s linear infinite;
+}
+
+@keyframes rainbow-text {
+to {
+background-position: 300% center;
+}
+}
+
+/* =========================================================
+BUTTONS
+========================================================= */
+
+button,
+a {
+transition:
+transform 250ms cubic-bezier(0.16, 1, 0.3, 1),
+box-shadow 300ms ease,
+filter 300ms ease;
+}
+
+button {
+font-family: inherit;
+}
+
+button:active,
+a:active {
+transform: scale(0.95);
+}
+
+/* Main gradient button */
+
+.btn-gradient {
+position: relative;
+
+color: white;
+
+border: none;
+
+background:
+linear-gradient(
+110deg,
+#7c3aed,
+#ec4899,
+#fb7185,
+#f59e0b
+);
+
+background-size: 250% 100%;
+
+box-shadow:
+0 12px 30px rgba(236, 72, 153, 0.22);
+
+animation:
+button-gradient 6s ease infinite;
+}
+
+.btn-gradient:hover {
+transform: translateY(-3px);
+
+filter: brightness(1.1);
+
+box-shadow:
+0 18px 45px rgba(236, 72, 153, 0.35),
+0 0 35px rgba(124, 58, 237, 0.20);
+}
+
+@keyframes button-gradient {
+0% {
+background-position: 0% 50%;
+}
+
+50% {
+background-position: 100% 50%;
+}
+
+100% {
+background-position: 0% 50%;
+}
+}
+
+/* =========================================================
+THEME TOGGLE
+========================================================= */
+
+.theme-toggle {
+width: 46px;
+height: 46px;
+
+display: flex;
+
+align-items: center;
+justify-content: center;
+
+border-radius: 15px;
+
+border:
+1px solid rgba(255, 255, 255, 0.13);
+
+background:
+rgba(255, 255, 255, 0.07);
+
+color: white;
+
+cursor: pointer;
+
+-webkit-backdrop-filter: blur(15px);
+backdrop-filter: blur(15px);
+
+box-shadow:
+0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.theme-toggle:hover {
+transform:
+translateY(-3px)
+rotate(8deg);
+
+border-color:
+rgba(236, 72, 153, 0.4);
+
+box-shadow:
+0 15px 40px rgba(236, 72, 153, 0.18);
+}
+
+/* =========================================================
+INPUTS
+========================================================= */
+
+input,
+textarea,
+select {
+font-family: inherit;
+
+color: white;
+
+background:
+rgba(255, 255, 255, 0.055);
+
+border:
+1px solid rgba(255, 255, 255, 0.11);
+
+border-radius: 14px;
+
+outline: none;
+
+transition:
+border-color 250ms ease,
+box-shadow 300ms ease,
+background 300ms ease,
+transform 200ms ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+border-color:
+rgba(236, 72, 153, 0.55);
+
+background:
+rgba(255, 255, 255, 0.08);
+
+box-shadow:
+0 0 0 4px rgba(236, 72, 153, 0.09),
+0 10px 30px rgba(124, 58, 237, 0.10);
+
+transform: translateY(-1px);
+}
+
+input::placeholder,
+textarea::placeholder {
+color: #77738f;
+}
+
+/* =========================================================
+GLOW UTILITIES
+========================================================= */
+
+.theme-glow {
+box-shadow:
+0 20px 60px rgba(124, 58, 237, 0.20),
+0 0 50px rgba(236, 72, 153, 0.10);
+}
+
+.pink-glow {
+box-shadow:
+0 20px 60px rgba(236, 72, 153, 0.22);
+}
+
+.orange-glow {
+box-shadow:
+0 20px 60px rgba(251, 113, 133, 0.20);
+}
+
+/* =========================================================
+SCROLLBAR
+========================================================= */
+
+::-webkit-scrollbar {
+width: 8px;
+}
+
+::-webkit-scrollbar-track {
+background: #07051a;
+}
+
+::-webkit-scrollbar-thumb {
+background:
+linear-gradient(
+180deg,
+#7c3aed,
+#ec4899,
+#fb7185
+);
+
+border-radius: 999px;
+}
+
+/* =========================================================
+SELECTION
+========================================================= */
+
+::selection {
+background: #ec4899;
+color: white;
+}
+
+/* =========================================================
+MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+body::before {
+width: 450px;
+height: 450px;
+
+filter: blur(90px);
+
+
+}
+
+body::after {
+width: 400px;
+height: 400px;
+
+filter: blur(100px);
+
+
+}
+
+.glass {
+border-radius: 20px;
+}
+
+.group:hover {
+transform: translateY(-4px);
+}
+}
+
+/* =========================================================
+REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+*,
+*::before,
+*::after {
+animation-duration: 0.01ms !important;
+animation-iteration-count: 1 !important;
+transition-duration: 0.01ms !important;
+}
+}
+
+/* =========================================
+   THEME VARIABLES
+========================================= */
+
+:root {
+  --bg-primary: #07051a;
+  --bg-secondary: #0d0a25;
+  --text-primary: #ffffff;
+  --text-secondary: #aaa7c4;
+  --text-muted: #77738f;
+  --border-color: rgba(255, 255, 255, 0.1);
+  --glass-bg: rgba(255, 255, 255, 0.05);
+}
+
+html.light {
+  --bg-primary: #f5f7ff;
+  --bg-secondary: #ffffff;
+  --text-primary: #17142d;
+  --text-secondary: #5f5b78;
+  --text-muted: #77738f;
+  --border-color: rgba(30, 20, 70, 0.12);
+  --glass-bg: rgba(255, 255, 255, 0.75);
+}
+
+/* =========================================
+   BODY
+========================================= */
+
+body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+/* =========================================
+   LIGHT THEME
+========================================= */
+
+html.light body {
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(139, 92, 246, 0.12),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at top right,
+      rgba(236, 72, 153, 0.1),
+      transparent 35%
+    ),
+    #f5f7ff;
+}
+
+/* =========================================
+   GLASS
+========================================= */
+
+html.light .glass {
+  background: rgba(255, 255, 255, 0.75);
+  border-color: rgba(80, 60, 150, 0.12);
+  color: #17142d;
+  box-shadow: 0 20px 60px rgba(80, 60, 150, 0.08);
+}
+
+/* =========================================
+   COMMON TEXT COLORS
+========================================= */
+
+html.light .text-white {
+  color: #17142d !important;
+}
+
+html.light .text-\[\#aaa7c4\] {
+  color: #5f5b78 !important;
+}
+
+html.light .text-\[\#77738f\] {
+  color: #77738f !important;
+}
+
+html.light .text-gray-300 {
+  color: #5f5b78 !important;
+}
+
+html.light .text-slate-950 {
+  color: #17142d !important;
+}
+
+/* =========================================
+   INPUTS
+========================================= */
+
+html.light input,
+html.light textarea,
+html.light select {
+  background: rgba(255, 255, 255, 0.9);
+  color: #17142d;
+  border-color: rgba(80, 60, 150, 0.15);
+}
+
+html.light input::placeholder,
+html.light textarea::placeholder {
+  color: #9994ad;
+}
+
+html.light input:focus,
+html.light textarea:focus,
+html.light select:focus {
+  border-color: rgba(139, 92, 246, 0.5);
+  outline: none;
+}
+
+/* =========================================
+   HEADER
+========================================= */
+
+html.light header {
+  background: rgba(255, 255, 255, 0.78);
+  border-color: rgba(80, 60, 150, 0.1);
+}
+
+/* =========================================
+   WHITE TRANSPARENT BACKGROUNDS
+========================================= */
+
+html.light .bg-white\/5,
+html.light .bg-white\/\[0\.05\],
+html.light .bg-white\/\[0\.04\],
+html.light .bg-white\/\[0\.03\],
+html.light .bg-white\/\[0\.06\] {
+  background: rgba(80, 60, 150, 0.04) !important;
+}
+
+html.light .border-white\/10 {
+  border-color: rgba(80, 60, 150, 0.12) !important;
+}
+
+/* =========================================
+   LIGHT THEME CONTRAST
+========================================= */
+
+html.light body::before,
+html.light body::after {
+  opacity: 0.08;
+}
+
+html.light [class*="text-white/"] {
+  color: #17142d !important;
+}
+
+html.light [class*="border-white"] {
+  border-color: rgba(80, 60, 150, 0.14) !important;
+}
+
+html.light [class*="bg-white/"] {
+  background-color: rgba(80, 60, 150, 0.05) !important;
+}
+
+html.light [class*="bg-black/15"],
+html.light [class*="bg-black/20"] {
+  background-color: rgba(80, 60, 150, 0.06) !important;
+}
+
+html.light [class*="bg-[#07051a]"] {
+  background-color: rgba(255, 255, 255, 0.82) !important;
+}
+
+html.light [class*="bg-[#120d24]"] {
+  background: #ffffff !important;
+  border-color: rgba(80, 60, 150, 0.14) !important;
+}
+
+html.light .theme-toggle {
+  color: #17142d;
+  border-color: rgba(80, 60, 150, 0.16);
+  background: rgba(255, 255, 255, 0.78);
+  box-shadow: 0 10px 30px rgba(80, 60, 150, 0.12);
+}
+
+html.light button.text-white,
+html.light a.text-white,
+html.light .btn-gradient,
+html.light .bg-blue-600,
+html.light .bg-gradient-to-r,
+html.light .bg-gradient-to-br {
+  color: #ffffff !important;
+}
+
+html.light ::-webkit-scrollbar-track {
+  background: #e9e7f5;
+}
+
+/* =========================================
+   SMOOTH TRANSITION
+========================================= */
+
+* {
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    color 0.2s ease;
+}
+
+/* =========================================================
+   LIGHT THEME — DARK FONT + BETTER CONTRAST
+   Add this at the VERY BOTTOM of index.css
+========================================================= */
+
+html.light {
+  --bg-primary: #f6f7fb;
+  --bg-secondary: #ffffff;
+
+  /* DARK FONTS */
+  --text-primary: #17132b;
+  --text-secondary: #45405f;
+  --text-muted: #6b6680;
+
+  --border-color: rgba(23, 19, 43, 0.14);
+  --glass-bg: rgba(255, 255, 255, 0.82);
+}
+
+/* Main page */
+html.light body {
+  color: #17132b !important;
+
+  background:
+    radial-gradient(
+      circle at 10% 10%,
+      rgba(124, 58, 237, 0.10),
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at 90% 10%,
+      rgba(236, 72, 153, 0.08),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 50% 100%,
+      rgba(34, 211, 238, 0.06),
+      transparent 35%
+    ),
+    #f6f7fb !important;
+}
+
+/* =========================================================
+   ALL COMMON TEXT
+========================================================= */
+
+html.light .text-white {
+  color: #17132b !important;
+}
+
+html.light .text-gray-100 {
+  color: #17132b !important;
+}
+
+html.light .text-gray-200 {
+  color: #27233d !important;
+}
+
+html.light .text-gray-300 {
+  color: #45405f !important;
+}
+
+html.light .text-gray-400 {
+  color: #625d76 !important;
+}
+
+html.light .text-gray-500 {
+  color: #6b6680 !important;
+}
+
+html.light .text-gray-600 {
+  color: #57526a !important;
+}
+
+html.light .text-slate-950 {
+  color: #17132b !important;
+}
+
+html.light .text-slate-900 {
+  color: #17132b !important;
+}
+
+html.light .text-slate-800 {
+  color: #27233d !important;
+}
+
+html.light .text-slate-700 {
+  color: #45405f !important;
+}
+
+html.light .text-slate-600 {
+  color: #57526a !important;
+}
+
+html.light .text-slate-500 {
+  color: #6b6680 !important;
+}
+
+/* Tailwind arbitrary colors from your project */
+
+html.light .text-\[\#aaa7c4\] {
+  color: #57526a !important;
+}
+
+html.light .text-\[\#77738f\] {
+  color: #6b6680 !important;
+}
+
+html.light .text-\[\#ffffff\] {
+  color: #17132b !important;
+}
+
+/* =========================================================
+   HEADINGS
+========================================================= */
+
+html.light h1,
+html.light h2,
+html.light h3,
+html.light h4,
+html.light h5,
+html.light h6 {
+  color: #17132b;
+}
+
+html.light p {
+  color: #45405f;
+}
+
+/* =========================================================
+   HEADER / NAVIGATION
+========================================================= */
+
+html.light header {
+  background: rgba(255, 255, 255, 0.86) !important;
+
+  border-color: rgba(23, 19, 43, 0.10) !important;
+
+  box-shadow:
+    0 10px 35px rgba(23, 19, 43, 0.06);
+}
+
+html.light nav {
+  color: #17132b;
+}
+
+html.light header a {
+  color: #45405f;
+}
+
+html.light header a:hover {
+  color: #7c3aed;
+}
+
+/* Logo / brand */
+html.light header .text-white {
+  color: #17132b !important;
+}
+
+/* =========================================================
+   GLASS CARDS
+========================================================= */
+
+html.light .glass {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.92),
+      rgba(248, 247, 255, 0.82)
+    ) !important;
+
+  color: #17132b !important;
+
+  border-color: rgba(23, 19, 43, 0.12) !important;
+
+  box-shadow:
+    0 20px 60px rgba(45, 35, 90, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+html.light .glass::before {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.7),
+      transparent 45%
+    );
+}
+
+html.light .glass:hover {
+  border-color: rgba(124, 58, 237, 0.25) !important;
+
+  box-shadow:
+    0 30px 70px rgba(45, 35, 90, 0.12),
+    0 0 35px rgba(124, 58, 237, 0.08);
+}
+
+/* =========================================================
+   WHITE TRANSPARENT TAILWIND BACKGROUNDS
+========================================================= */
+
+html.light .bg-white\/5,
+html.light .bg-white\/\[0\.03\],
+html.light .bg-white\/\[0\.04\],
+html.light .bg-white\/\[0\.05\],
+html.light .bg-white\/\[0\.06\],
+html.light .bg-white\/\[0\.08\],
+html.light .bg-white\/\[0\.10\] {
+  background: rgba(30, 25, 60, 0.045) !important;
+}
+
+/* =========================================================
+   BORDERS
+========================================================= */
+
+html.light .border-white\/5,
+html.light .border-white\/10,
+html.light .border-white\/20 {
+  border-color: rgba(23, 19, 43, 0.12) !important;
+}
+
+html.light [class*="border-white"] {
+  border-color: rgba(23, 19, 43, 0.12) !important;
+}
+
+/* =========================================================
+   INPUTS / SELECT / TEXTAREA
+========================================================= */
+
+html.light input,
+html.light textarea,
+html.light select {
+  background: #ffffff !important;
+
+  color: #17132b !important;
+
+  border: 1px solid rgba(23, 19, 43, 0.14) !important;
+
+  box-shadow:
+    0 5px 20px rgba(23, 19, 43, 0.04);
+}
+
+html.light input::placeholder,
+html.light textarea::placeholder {
+  color: #858096 !important;
+}
+
+html.light input:focus,
+html.light textarea:focus,
+html.light select:focus {
+  background: #ffffff !important;
+
+  color: #17132b !important;
+
+  border-color: rgba(124, 58, 237, 0.55) !important;
+
+  box-shadow:
+    0 0 0 4px rgba(124, 58, 237, 0.08),
+    0 10px 30px rgba(124, 58, 237, 0.08);
+}
+
+/* =========================================================
+   DROPDOWN OPTIONS
+========================================================= */
+
+html.light option {
+  background: #ffffff;
+  color: #17132b;
+}
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+html.light button {
+  color: #17132b;
+}
+
+html.light button.text-white,
+html.light .btn-gradient {
+  color: #ffffff !important;
+}
+
+/* Gradient buttons stay colorful */
+html.light .btn-gradient {
+  background:
+    linear-gradient(
+      110deg,
+      #6d28d9,
+      #db2777,
+      #e11d48,
+      #d97706
+    ) !important;
+
+  color: #ffffff !important;
+}
+
+/* =========================================================
+   THEME TOGGLE
+========================================================= */
+
+html.light .theme-toggle {
+  background: rgba(255, 255, 255, 0.9) !important;
+
+  color: #17132b !important;
+
+  border-color: rgba(23, 19, 43, 0.14) !important;
+
+  box-shadow:
+    0 10px 30px rgba(23, 19, 43, 0.08);
+}
+
+/* =========================================================
+   LINKS
+========================================================= */
+
+html.light a {
+  color: #45405f;
+}
+
+html.light a:hover {
+  color: #7c3aed;
+}
+
+/* Don't change gradient links/buttons */
+html.light a.btn-gradient,
+html.light .gradient-text {
+  color: transparent;
+}
+
+/* =========================================================
+   ICON CONTAINERS
+========================================================= */
+
+html.light .text-purple-400 {
+  color: #7c3aed !important;
+}
+
+html.light .text-purple-500 {
+  color: #6d28d9 !important;
+}
+
+html.light .text-pink-400 {
+  color: #db2777 !important;
+}
+
+html.light .text-pink-500 {
+  color: #db2777 !important;
+}
+
+html.light .text-cyan-400 {
+  color: #0891b2 !important;
+}
+
+html.light .text-orange-400 {
+  color: #ea580c !important;
+}
+
+/* =========================================================
+   DARK TRANSPARENT BACKGROUNDS
+========================================================= */
+
+html.light .bg-black\/10,
+html.light .bg-black\/15,
+html.light .bg-black\/20,
+html.light .bg-black\/30 {
+  background: rgba(23, 19, 43, 0.045) !important;
+}
+
+/* =========================================================
+   SPECIFIC DARK BACKGROUNDS
+========================================================= */
+
+html.light [class*="bg-[#07051a]"] {
+  background: #ffffff !important;
+}
+
+html.light [class*="bg-[#030014]"] {
+  background: #ffffff !important;
+}
+
+html.light [class*="bg-[#0d0a25]"] {
+  background: #ffffff !important;
+}
+
+html.light [class*="bg-[#120d24]"] {
+  background: #ffffff !important;
+}
+
+/* =========================================================
+   TABLES / LISTS
+========================================================= */
+
+html.light table {
+  color: #17132b;
+}
+
+html.light th {
+  color: #17132b;
+}
+
+html.light td {
+  color: #45405f;
+  border-color: rgba(23, 19, 43, 0.10);
+}
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+html.light ::-webkit-scrollbar-track {
+  background: #ececf4;
+}
+
+html.light ::-webkit-scrollbar-thumb {
+  background:
+    linear-gradient(
+      180deg,
+      #7c3aed,
+      #db2777,
+      #e11d48
+    );
+}
+
+/* =========================================================
+   SELECTION
+========================================================= */
+
+html.light ::selection {
+  background: #7c3aed;
+  color: #ffffff;
+}
+
+/* =========================================================
+   AURORA — MUCH SOFTER IN LIGHT MODE
+========================================================= */
+
+html.light body::before {
+  opacity: 0.07;
+}
+
+html.light body::after {
+  opacity: 0.055;
+}
+
+/* =========================================================
+   TEXT WITH WHITE OPACITY CLASSES
+========================================================= */
+
+html.light [class*="text-white/90"] {
+  color: #27233d !important;
+}
+
+html.light [class*="text-white/80"] {
+  color: #45405f !important;
+}
+
+html.light [class*="text-white/70"] {
+  color: #57526a !important;
+}
+
+html.light [class*="text-white/60"] {
+  color: #6b6680 !important;
+}
+
+html.light [class*="text-white/50"] {
+  color: #77718a !important;
+}
+
+/* =========================================================
+   LIGHT THEME TRANSITION
+========================================================= */
+
+html.light body,
+html.light .glass,
+html.light header,
+html.light input,
+html.light textarea,
+html.light select,
+html.light button {
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
