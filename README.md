@@ -1,16 +1,49 @@
-# React + Vite
+🌍 TrailBlaze
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+TrailBlaze is a responsive web application built with React and Tailwind CSS, featuring reusable components, interactive interfaces, theme support, and a clean project structure.
 
-Currently, two official plugins are available:
+✨ Features
+⚛️ React-based component architecture
+🎨 Responsive UI with Tailwind CSS
+🌙 Theme support
+🧩 Reusable components
+🧭 Page navigation
+📱 Mobile-friendly responsive design
+📋 Trip creation and management pages
+💻 Clean and organized code structure
+🛠️ Technologies Used
+React
+JavaScript
+HTML
+Tailwind CSS
+Vite
+🚀 Getting Started
+1. Clone the repository
+git clone https://github.com/arjunans909-source/project-2-TrailBlaze.git
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+2. Open the project
+cd project-2-TrailBlaze
 
-## React Compiler
+3. Install dependencies
+npm install
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+4. Start the development server
+npm run dev
 
-## Expanding the Oxlint configuration
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+Open the local URL shown in the terminal to view the application.
+
+📁 Project Structure
+src/
+├── components/
+├── context/
+├── pages/
+├── App.jsx
+├── index.css
+└── main.jsx
+
+public/
+
+👨‍💻 Built With
+
+TrailBlaze was developed using modern frontend technologies including React, JavaScript, Tailwind CSS, HTML, and Vite.
