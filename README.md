@@ -53,3 +53,21 @@ public/
 👨‍💻 Built With
 
 TrailBlaze was developed using modern frontend technologies including React, JavaScript, Tailwind CSS, HTML, and Vite.
+
+## 📸 Screenshots
+
+### 🏠 Home
+
+![TrailBlaze Home](./screenshots/home.png)
+
+### ➕ Create Trip
+
+![Create Trip](./screenshots/create-trip.png)
+
+### 📋 My Trips
+
+![My Trips](./screenshots/my-trips.png)
+
+### 🗺️ Trip Details
+
+![Trip Details](./screenshots/trip-details.png)
